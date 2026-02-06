@@ -6,168 +6,128 @@
     <title>SteamTools Plugin | Glitchsize</title>
     <style>
         :root {
-            --steam-dark: #0b1014;
-            --steam-card: rgba(27, 40, 56, 0.8);
-            --steam-accent: #1a9fff;
-            --steam-gradient: linear-gradient(90deg, #00ccff 0%, #3366ff 100%);
-            --text-main: #e9eaec;
+            --steam-dark: #171a21;
+            --steam-blue: #1b2838;
+            --steam-accent: #66c0f4;
+            --steam-gradient: linear-gradient(90deg, #06bfff 0%, #2d73ff 100%);
+            --text-main: #ffffff;
             --text-muted: #8f98a0;
         }
 
         body {
-            font-family: 'Motiva Sans', Sans-Serif, Arial;
-            background: radial-gradient(circle at top right, #1b2838, #0b1014);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--steam-dark);
+            background-image: radial-gradient(circle at center, #1b2838 0%, #171a21 100%);
             color: var(--text-main);
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Effet de fond moderne */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url('https://community.cloudflare.steamstatic.com/public/images/profile/effects/0/bg_black.jpg');
-            opacity: 0.3;
-            z-index: -1;
         }
 
         .container {
-            background: var(--steam-card);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            max-width: 650px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            max-width: 600px;
             width: 90%;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: fadeIn 0.8s ease-out;
+            text-align: center;
+            border: 1px solid rgba(102, 192, 244, 0.1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Header avec Logo Steam */
+        /* --- Header avec le vrai logo Steam --- */
         .header {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .steam-logo {
-            width: 45px;
-            height: 45px;
-            filter: drop-shadow(0 0 10px var(--steam-accent));
+            width: 50px;
+            height: 50px;
+            /* Filtre pour ajouter une légère lueur bleue autour du logo */
+            filter: drop-shadow(0 0 5px var(--steam-accent));
         }
 
         h1 {
             margin: 0;
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            background: linear-gradient(to bottom, #ffffff, #a5a5a5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        /* Box de téléchargement */
-        .download-card {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 15px;
+        .download-box {
+            background: linear-gradient(180deg, rgba(42, 71, 94, 0.6) 0%, rgba(23, 26, 33, 0.8) 100%);
             padding: 2rem;
-            margin-bottom: 2.5rem;
-            border-bottom: 2px solid var(--steam-accent);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(102, 192, 244, 0.2);
         }
 
-        .download-card p {
-            margin-top: 0;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        .btn-main {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        .btn-download {
+            display: inline-block;
             background: var(--steam-gradient);
             color: white;
-            padding: 16px 40px;
+            padding: 15px 35px;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 4px;
             font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 20px rgba(0, 204, 255, 0.2);
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .btn-main:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 204, 255, 0.4);
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(6, 191, 255, 0.5);
+            filter: brightness(1.1);
         }
 
-        /* Section Liens */
-        .info-grid {
-            display: grid;
-            gap: 1.5rem;
+        .links-grid {
             text-align: left;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
         }
 
-        .info-item {
-            padding: 12px;
-            border-left: 3px solid transparent;
-            transition: 0.3s;
+        .link-card {
+            margin-bottom: 1.2rem;
         }
 
-        .info-item:hover {
-            background: rgba(255, 255, 255, 0.03);
-            border-left-color: var(--steam-accent);
-        }
-
-        .info-item a {
+        .link-card a {
             color: var(--steam-accent);
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
         }
 
-        .description {
-            font-size: 0.9rem;
+        .link-card a:hover { text-decoration: underline; }
+
+        .desc {
             color: var(--text-muted);
-            margin-top: 5px;
+            font-size: 0.9rem;
+            margin-top: 4px;
         }
 
-        /* Vidéo stylisée */
-        .video-box {
-            margin-top: 2rem;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
+        .video-wrapper {
+            margin-top: 1.5rem;
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
-        .video-box iframe {
+        .video-wrapper iframe {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-        }
-
-        footer {
-            margin-top: 2rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            opacity: 0.6;
+            border: 0;
         }
     </style>
 </head>
@@ -175,41 +135,35 @@
 
 <div class="container">
     <header class="header">
-        <svg class="steam-logo" viewBox="0 0 24 24" fill="white">
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 1.24.189 2.434.54 3.558l5.584 2.292c.31-.157.653-.25 1.018-.25.176 0 .344.024.506.064l2.67-3.868A2.99 2.99 0 0110 11.5c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3c-.09 0-.178-.008-.264-.02l-3.87 2.668c.038.16.06.326.06.496a3 3 0 11-3-3c.17 0 .333.02.492.058l2.29-5.58A11.956 11.956 0 0012 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10c-1.49 0-2.895-.326-4.156-.913l5.06-2.074c.03.012.064.017.096.017a1 1 0 10-1-1c0 .034.006.066.018.097l-2.075 5.06A7.994 7.994 0 014 12c0-4.418 3.582-8 8-8z"/>
-        </svg>
-        <h1>SteamTools v1.0.1</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam Logo" class="steam-logo">
+        <h1>SteamTools Plugin</h1>
     </header>
 
-    <div class="download-card">
-        <p>Propulsé par <strong>Glitchsize</strong></p>
-        <a href="https://cdn.discordapp.com/attachments/1469113489753641244/1469113565364355163/steamtools_plugin_By_Glitchsize_V_1.0.1.zip?ex=698722e0&is=6985d160&hm=0da324492ed7e27f28d010e8a1aac16f95ebf626221b0ccf6840f8cc88664041&" class="btn-main">
-            Installer le Plugin
+    <div class="download-box">
+        <p style="margin-top: 0; color: var(--steam-accent);">Version 1.0.1 par <strong>Glitchsize</strong></p>
+        <a href="https://cdn.discordapp.com/attachments/1469113489753641244/1469113565364355163/steamtools_plugin_By_Glitchsize_V_1.0.1.zip?ex=698722e0&is=6985d160&hm=0da324492ed7e27f28d010e8a1aac16f95ebf626221b0ccf6840f8cc88664041&" class="btn-download">
+            TÉLÉCHARGER LE PLUGIN
         </a>
     </div>
 
-    <div class="info-grid">
-        <div class="info-item">
-            <a href="https://steambrew.app/" target="_blank">Millennium Framework</a>
-            <div class="description">Le moteur indispensable pour injecter vos plugins Steam.</div>
+    <div class="links-grid">
+        <div class="link-card">
+            <a href="https://steambrew.app/" target="_blank">Millennium (SteamBrew)</a>
+            <div class="desc">Le logiciel nécessaire pour charger le plugin.</div>
         </div>
 
-        <div class="info-item">
-            <a href="https://www.steamtools.net/" target="_blank">Steam Tools Library</a>
-            <div class="description">Base de données nécessaire pour l'activation des jeux.</div>
+        <div class="link-card">
+            <a href="https://www.steamtools.net/" target="_blank">Steam Tools</a>
+            <div class="desc">Dépendance essentielle pour le fonctionnement.</div>
         </div>
 
-        <div class="info-item">
-            <span style="font-weight: bold; color: white;">Guide d'installation</span>
-            <div class="video-box">
-                <iframe src="https://www.youtube.com/embed/EA2WoyP7_fo" frameborder="0" allowfullscreen></iframe>
+        <div class="link-card">
+            <strong style="display: block; margin-bottom: 10px;">Tutoriel Vidéo :</strong>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/EA2WoyP7_fo" allowfullscreen></iframe>
             </div>
         </div>
     </div>
-
-    <footer>
-        SteamTools Plugin &copy; 2024-2026 | Non affilié à Valve Corp.
-    </footer>
 </div>
 
 </body>
