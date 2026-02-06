@@ -31,9 +31,33 @@
             max-width: 600px;
             width: 90%;
             text-align: center;
+            margin: 20px;
         }
 
-        h1 { color: white; margin-bottom: 1.5rem; }
+        /* --- Nouveau style pour le titre et le logo --- */
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        .plugin-logo {
+            width: 60px; /* Taille du logo */
+            height: 60px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(102, 192, 244, 0.4);
+            border: 1px solid var(--steam-accent);
+        }
+
+        h1 { 
+            color: white; 
+            margin: 0; 
+            font-size: 1.8rem;
+        }
+        /* -------------------------------------------- */
 
         .download-box {
             background: var(--steam-light-blue);
@@ -50,10 +74,13 @@
             text-decoration: none;
             border-radius: 3px;
             font-weight: bold;
-            transition: opacity 0.2s;
+            transition: transform 0.2s, opacity 0.2s;
         }
 
-        .btn:hover { opacity: 0.9; }
+        .btn:hover { 
+            opacity: 0.9; 
+            transform: translateY(-2px);
+        }
 
         .links-section {
             text-align: left;
@@ -90,7 +117,10 @@
 <body>
 
 <div class="container">
-    <h1>SteamTools Plugin V 1.0.1</h1>
+    <div class="header-main">
+        <img src="https://cdn-icons-png.flaticon.com/512/806/806542.png" alt="Logo" class="plugin-logo">
+        <h1>SteamTools Plugin V 1.0.1</h1>
+    </div>
     
     <div class="download-box">
         <p>Téléchargez la dernière version du plugin par <strong>Glitchsize</strong></p>
