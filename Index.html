@@ -25,6 +25,179 @@
 
         .container {
             background: rgba(0, 0, 0, 0.3);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            margin: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- En-tête avec le logo SteamBrew --- */
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .plugin-logo {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            /* Filtre léger pour faire ressortir le logo sur fond sombre */
+            filter: drop-shadow(0 0 8px rgba(102, 192, 244, 0.5));
+        }
+
+        h1 { 
+            color: white; 
+            margin: 0; 
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .download-box {
+            background: var(--steam-light-blue);
+            padding: 1.8rem;
+            border-radius: 6px;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(102, 192, 244, 0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #47bfff 0%, #1a44c2 100%);
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover { 
+            opacity: 0.95; 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(71, 191, 255, 0.4);
+        }
+
+        .links-section {
+            text-align: left;
+            border-top: 1px solid #3d4450;
+            padding-top: 1.5rem;
+        }
+
+        h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; }
+
+        .link-item { margin-bottom: 1.5rem; }
+        
+        .link-item a {
+            color: var(--steam-accent);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        .link-item a:hover { text-decoration: underline; }
+
+        .video-container {
+            margin-top: 1rem;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: none;
+        }
+
+        .description { 
+            font-size: 0.85rem; 
+            margin-top: 0.5rem; 
+            color: #8f98a0; 
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-main">
+        <img src="https://steambrew.app/favicon.ico" alt="Millennium Logo" class="plugin-logo">
+        <h1>SteamTools Plugin V 1.0.1</h1>
+    </div>
+    
+    <div class="download-box">
+        <p>Téléchargez la dernière version du plugin par <strong>Glitchsize</strong></p>
+        <a href="https://cdn.discordapp.com/attachments/1469113489753641244/1469113565364355163/steamtools_plugin_By_Glitchsize_V_1.0.1.zip?ex=698722e0&is=6985d160&hm=0da324492ed7e27f28d010e8a1aac16f95ebf626221b0ccf6840f8cc88664041&" target="_blank" class="btn">TÉLÉCHARGER LE PLUGIN (.ZIP)</a>
+    </div>
+
+    <div class="links-section">
+        <h3>Prérequis & Liens utiles :</h3>
+
+        <div class="link-item">
+            <a href="https://steambrew.app/" target="_blank">Millennium (steambrew.app)</a>
+            <div class="description">Le framework nécessaire pour injecter le plugin dans l'interface Steam.</div>
+        </div>
+
+        <div class="link-item">
+            <a href="https://www.steamtools.net/" target="_blank">Steam Tools</a>
+            <div class="description">Dépendance logicielle pour le déblocage des fonctionnalités.</div>
+        </div>
+
+        <div class="link-item">
+            <strong>Tutoriel Vidéo :</strong>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EA2WoyP7_fo" allowfullscreen></iframe>
+            </div>
+            <div class="description">
+                <a href="https://youtu.be/EA2WoyP7_fo" target="_blank">Regarder sur YouTube : Tuto installation complète</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteamTools Plugin - Glitchsize</title>
+    <style>
+        :root {
+            --steam-blue: #1b2838;
+            --steam-light-blue: #2a475e;
+            --steam-accent: #66c0f4;
+            --text-color: #c7d5e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--steam-blue);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.3);
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
