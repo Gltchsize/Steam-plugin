@@ -12,6 +12,10 @@
             --steam-gradient: linear-gradient(90deg, #06bfff 0%, #2d73ff 100%);
             --text-main: #ffffff;
             --text-muted: #8f98a0;
+            --discord: #5865F2;
+            --twitch: #9146FF;
+            --youtube: #FF0000;
+            --tiktok: #000000;
         }
 
         body {
@@ -38,7 +42,6 @@
             border: 1px solid rgba(102, 192, 244, 0.1);
         }
 
-        /* --- Header avec le vrai logo Steam --- */
         .header {
             display: flex;
             align-items: center;
@@ -50,7 +53,6 @@
         .steam-logo {
             width: 50px;
             height: 50px;
-            /* Filtre pour ajouter une légère lueur bleue autour du logo */
             filter: drop-shadow(0 0 5px var(--steam-accent));
         }
 
@@ -89,30 +91,45 @@
             filter: brightness(1.1);
         }
 
+        /* --- Nouveaux Styles Réseaux Sociaux --- */
+        .social-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .btn-social {
+            padding: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-social:hover { opacity: 0.8; }
+        .discord { background-color: var(--discord); }
+        .twitch { background-color: var(--twitch); }
+        .youtube { background-color: var(--youtube); }
+        .tiktok { background-color: var(--tiktok); border: 1px solid #333; }
+
         .links-grid {
             text-align: left;
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 1.5rem;
+            margin-top: 1.5rem;
         }
 
-        .link-card {
-            margin-bottom: 1.2rem;
-        }
-
-        .link-card a {
-            color: var(--steam-accent);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
+        .link-card { margin-bottom: 1.2rem; }
+        .link-card a { color: var(--steam-accent); text-decoration: none; font-weight: bold; font-size: 1.1rem; }
         .link-card a:hover { text-decoration: underline; }
 
-        .desc {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
+        .desc { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; }
 
         .video-wrapper {
             margin-top: 1.5rem;
@@ -129,9 +146,19 @@
             top: 0; left: 0; width: 100%; height: 100%;
             border: 0;
         }
+
+        /* Cache le binaire visuellement mais reste dans le DOM */
+        .hidden-msg {
+            font-size: 0;
+            color: transparent;
+            user-select: none;
+            position: absolute;
+        }
     </style>
 </head>
 <body>
+
+<div class="hidden-msg">01010011 01101001 00100000 01110100 01110101 00100000 01100001 01110011 00100000 01110010 01100101 01110101 01110011 01110011 01101001 00100000 01100001 00100000 01110100 01110010 01100001 01100100 01110101 01101001 01110010 01100101 00100000 01100011 01100001 00100000 01100011 00100111 01100101 01110011 01110100 00100000 01110001 01110101 01100101 00100000 01110100 01110101 00100000 01100001 00100000 11101001 01110100 01100001 01101001 01110011 00100000 01101000 01100001 01100011 01101011 01100101 01110010 00100000 01110000 01100001 01110010 00100000 01101101 01101111 01101001 00100000 00101000 01100111 01101100 01101001 01110100 01100011 01101000 01110011 01101001 01111010 01100101 00101001...</div>
 
 <div class="container">
     <header class="header">
@@ -144,6 +171,13 @@
         <a href="https://cdn.discordapp.com/attachments/1469113489753641244/1469113565364355163/steamtools_plugin_By_Glitchsize_V_1.0.1.zip?ex=698722e0&is=6985d160&hm=0da324492ed7e27f28d010e8a1aac16f95ebf626221b0ccf6840f8cc88664041&" class="btn-download">
             TÉLÉCHARGER LE PLUGIN
         </a>
+
+        <div class="social-container">
+            <a href="https://discord.gg/WdFMhFq9ca" target="_blank" class="btn-social discord">Discord</a>
+            <a href="https://www.twitch.tv/glitchsize" target="_blank" class="btn-social twitch">Twitch</a>
+            <a href="https://youtube.com/@glitchsize6?si=RG91409vqTuC8xNV" target="_blank" class="btn-social youtube">YouTube</a>
+            <a href="https://www.tiktok.com/@glitchsize6?is_from_webapp=1&sender_device=pc" target="_blank" class="btn-social tiktok">TikTok</a>
+        </div>
     </div>
 
     <div class="links-grid">
